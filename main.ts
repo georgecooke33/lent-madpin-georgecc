@@ -19,9 +19,6 @@ namespace SpriteKind {
     export const Flier = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Bumper, function (sprite, otherSprite) {
-    showInstruction("Move with the left and right buttons.")
-    showInstruction("Jump with the up arrow")
-    showInstruction("Double jump by pressing jump again.")
     if (sprite.vy > 0 && !(sprite.isHittingTile(CollisionDirection.Bottom)) || sprite.y < otherSprite.top) {
         otherSprite.destroy(effects.ashes, 250)
         otherSprite.vy = -50
@@ -30,7 +27,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Bumper, function (sprite, otherS
         music.powerUp.play()
     } else {
         info.changeLifeBy(-1)
-        sprite.say("Ow!", invincibilityPeriod)
+        sprite.say("Don’t give me tardy ", invincibilityPeriod)
     }
     pause(invincibilityPeriod)
     music.powerDown.play()
@@ -302,16 +299,16 @@ function initializeFlierAnimations () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . f 4 4 4 4 4 4 4 f . . . 
-        . . . f 4 5 5 4 4 4 5 5 4 f . . 
-        . f . f 4 4 4 5 4 5 4 4 4 f . f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . . . f 4 4 5 5 5 5 5 4 4 f . . 
-        . . . . f 4 5 4 4 4 5 4 f . . . 
+        . . . . . 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 4 4 4 4 4 4 4 . . . 
+        . . . 4 4 d d d d d d d 4 4 . . 
+        . f . f d f d d d d d f d f . f 
+        . f f d d d d f f f d d d d f f 
+        . f d d d d d f d f d d d d d f 
+        . f 9 9 9 9 9 1 1 1 9 9 9 9 9 f 
+        . f f 7 7 7 7 7 7 7 7 7 7 7 f f 
+        . . . f 3 3 3 3 3 3 3 3 3 f f . 
+        . . . . f a a a a a a a f . . . 
         . . . . . f f f f f f f . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -320,16 +317,16 @@ function initializeFlierAnimations () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . f 4 4 4 4 4 4 4 f . . . 
-        . . . f 4 5 5 4 4 4 5 5 4 f . . 
-        . . . f 4 4 4 5 4 5 4 4 4 f . . 
-        . . f 4 4 4 4 4 4 4 4 4 4 4 f . 
-        . . f 4 4 4 4 5 4 5 4 4 4 4 f . 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
-        . f 4 f 4 4 5 5 5 5 5 4 4 f 4 f 
-        . f f . f 4 5 4 4 4 5 4 f . f f 
+        . . . . . 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 4 4 4 4 4 4 4 . . . 
+        . . . 4 4 d d d d d d 4 4 4 . . 
+        . . . f d f d d d d f d d f . . 
+        . . f d d d f f f f d d d d f . 
+        . . f d d d f d d f d d d d f . 
+        . f 9 9 9 9 9 1 1 9 9 9 9 9 9 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . f a f a a a a a a a a a f d f 
+        . f f . f 3 3 3 3 3 3 3 f . f f 
         . f . . . f f f f f f f . . . f 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -338,16 +335,16 @@ function initializeFlierAnimations () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . f 4 4 4 4 4 4 4 f . . . 
-        . . . f 4 5 5 4 4 4 5 5 4 f . . 
-        . f . f 4 4 4 5 4 5 4 4 4 f . f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . . . f 4 4 5 5 5 5 5 4 4 f . . 
-        . . . . f 4 5 4 4 4 5 4 f . . . 
+        . . . . . 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 d d d d d 4 4 . . . 
+        . . . 4 4 d d d d d d d 4 4 . . 
+        . f . 4 d f d d d d d f d 4 . f 
+        . f f 4 d d f f f f f d d 4 f f 
+        . f d d d d f d d d f d d d d f 
+        . f 7 7 7 7 7 1 1 1 7 7 7 7 7 f 
+        . f f 9 9 9 9 9 9 9 9 9 9 9 f f 
+        . . . f 3 3 3 3 3 3 3 3 3 f . . 
+        . . . . f a a a a a a a f . . . 
         . . . . . f f f f f f f . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -357,16 +354,16 @@ function initializeFlierAnimations () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . f 4 4 4 4 4 4 4 f . . . 
-        . . . f 4 5 5 4 4 4 5 5 4 f . . 
-        . f . f 4 4 4 5 4 5 4 4 4 f . f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . . . f 4 4 5 5 5 5 5 4 4 f . . 
-        . . . . f 4 5 4 4 4 5 4 f . . . 
+        . . . . . 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 d d d d d 4 4 . . . 
+        . . . 4 4 d d d d d d d 4 4 . . 
+        . f . 4 d f d d d d f d 4 4 . f 
+        . f f d d d d d d d d d d d f f 
+        . f d d d f f f f f f d d d d f 
+        . f d d d f d d d d f d d d d f 
+        . f f 7 7 7 7 1 1 7 7 7 7 7 f f 
+        . . . f 9 9 9 9 9 9 9 9 9 f . . 
+        . . . . f 3 3 3 3 3 3 3 f . . . 
         . . . . . f f f f f f f . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
