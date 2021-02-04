@@ -418,21 +418,21 @@ function createEnemies () {
     // enemy that moves back and forth
     for (let value5 of tiles.getTilesByType(assets.tile`tile4`)) {
         bumper = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . f f f f f f . . . . . . 
-            . . . f 7 2 7 7 7 2 f . . . . . 
-            . . f 7 7 7 2 7 2 7 7 f . . . . 
-            . . f 7 7 7 7 7 7 7 7 7 f . . . 
-            . f 7 7 7 2 7 7 7 2 7 7 f . . . 
-            . f 7 7 7 2 7 7 7 2 7 7 7 f . . 
-            . f 7 7 7 7 7 7 7 7 7 7 7 7 f . 
-            . f 7 7 7 7 2 2 2 7 7 7 7 7 f . 
-            . . f 7 7 2 2 7 2 2 7 7 7 7 f . 
-            . . f 7 7 2 7 7 7 2 2 7 7 7 f . 
-            . . . f 7 7 7 7 7 7 7 7 7 7 f . 
-            . . . . f f 7 7 7 7 7 7 7 f . . 
-            . . . . . . f f f f f f f . . . 
+            . . . . . e e e e e . . . . . . 
+            . . . . e e e e e e . . . . . . 
+            . . . . e d f d f . . . . . . . 
+            . . . . e d d d d . . . . . . . 
+            . . . . e d f f f . . . . . . . 
+            . . . . . 1 1 1 . . . . . . . . 
+            . . . . f f f 1 f f f f . . . . 
+            . . . . f f f 1 f f f . . . . . 
+            . . . f f f f f f f f . . . . . 
+            . . f f f f f f f . . . . . . . 
+            . . f f f f f f f . . . . . . . 
+            . f f f f f f f f . . . . . . . 
+            . f f f f f f f f . . . . . . . 
+            f f f f f f f f f . . . . . . . 
+            f f f f . . f . f . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Bumper)
         tiles.placeOnTile(bumper, value5)
